@@ -1,0 +1,142 @@
+% !TEX root = ../Projektdokumentation.tex
+\section{Einleitung}
+\label{sec:Einleitung}
+TEXT\ldots 
+
+\subsection{Projektumfeld} 
+\label{sec:Projektumfeld}
+Die Firma \mh wurde von der Touristeninformation \kunde beauftragt, deren
+unzeitgemäßen Internetauftritt mithilfe eines moderneren Erscheinungsbildes in
+Form eines Relaunch zu erneuern. Dazu wurde das Screendesign von einer
+externen Werbeagentur bereitgestellt.
+
+Die \mh mit Sitz in Bad Reichenhall ist eine crossmedia Werbeagentur, 
+die seit 2001 besteht und mittlerweile über 30 Mitarbeiter beschäftigt. 
+Die Agentur unterteilt sich in die vier
+Abteilungen: Projektmanagement, Kreation- und Design, Web-Technologie \& Design
+sowie IT Services. Unter anderem durch die geografische Lage des Unternehmens 
+begründet hat die Agentur ihren Schwerpunkt im Bereich Destinationstourismus.
+Dementsprechend sind die meisten Softwarelösungen, die die \mh anbietet, darauf ausgelegt.
+Zum Angebotsspekturm des Unternehmens gehört neben dem \ac{CMS} \ct 
+auch Softwarelösungen wie digiMELDE als Online-Meldewesen Plattform, makroCARD
+für Customer Loyality Management und ein innovatives Werkzeug zur
+Erstellung von Gastgeberverzeichnissen -- digiAIR (\Fachbegriff{Web2Print}).
+
+
+%Das \acs{CMS} \ct wird bereits von vielen großen und kleinen
+%Destinationen bei der Pflege derer Webauftritten erfolgreich eingesetzt, wie
+% \zB von Berchtesgadener Land Tourismus, Predigtstuhlbahn oder Alpine Welten – Der Bergführer.
+
+\subsection{Projektziel} 
+\label{sec:Projektziel}
+
+Das Bestreben des Auftraggebers ist es, durch die neue Website dem Besucher
+relevante Informationen zu bieten, Emotionen zu vermitteln, das Erfüllen
+moderner Anforderungen sowie Buchungen und Anfragen zu generieren.
+
+Ein Hauptaugenmerk ist hierbei, eine optimale und geräteunabhängige Darstellung
+im Web zu verwirklichen -- \ac{RWD}. Beim \ac{RWD} erfolgt der
+grafische Aufbau der Website auf Basis der Anforderung des jeweiligen Endgerätes
+auf dem die Website geöffnet wird. Die Umstellung auf \ac{RWD} führt demnach
+zur einer vereinfachten und optimierten Bedienung in allen gängigen
+Darstellungsgrößen. Daraus erschließt sich das Ziel eine bestmögliche
+Benutzererfahrung zu schaffen.
+
+Ein weiteres Anliegen ist die zeitaufwändige und komplizierte Einpflege von
+Inhalten und weitere technische Mängel wie \zB dürftige \ac{SEO} mit einem
+\ac{CMS} zu umgehen.
+
+
+\subsection{Projektbegründung} 
+\label{sec:Projektbegruendung}
+Basierend auf der Kernzielgruppe "`50+"' ist eine übersichtliche und
+anpassungsfähige Darstellung von relevanten Informationen signifikant. 
+Die statische Darbietung auf verschiedenen Displaygrößen benachteiligt die
+\Fachbegriff{Userability} schwerwiegend und führt dazu, dass
+überdurchschnittlich viele Nutzer die Website verlassen. Durch das modernere
+Erscheinungsbild in Kombination mit \ac{RWD} kann dies verhindert werden.
+ 
+Ebenso hemmend ist die lückenhafte Suchmaschinenoptimierung, die die Suche
+der Website erschwert. Hinzu kommen noch Performance- und
+Sicherheitsproblemen, die durch die veraltete Technik der aktuellen Website
+ausgelöst werden. Die eben gennanten Hindernissen als auch die komplizierte und
+zeitaufwändige Einpflege von Inhalten kann durch die Implementierung des heuseigenen
+sowie modernen \ac{CMS} \ct umgangen werden.
+
+Auf Grund dieser Lösungsansätzen und die dafür nötigen Kompetenzen hat sich die
+\kunde entschlossen, der Firma \mh die Entwicklung einer neuen Website in
+Auftrag zu geben.
+
+\subsection{Projektschnittstellen} 
+\label{sec:Projektschnittstellen}
+
+
+
+Als Grundlage für die Umsetzung der Website liegen mir vor:
+\begin{itemize}
+	\item Mehrere Screendesigns der Start- und Unterseiten in verschiedenen
+Darstellungsgrößen (Desktop, Tablet, Mobil) als Bilddateien
+	\item Styletemplate mit Informationen zu Schriftgrößen, Schriftstärken,
+Elementgrößen, Hover-Effekte, Animationen, \usw vom Screendesigner
+	\item Grobkonzept der Navigation vom Projektmanagement
+	\item SVG Logo und Icons vom Screendesigner
+	\item Zugeschnittene Bilder (\Fachbegriff{Slices}) und Partnerlogos als
+	Bilddateien vom Screendesigner
+\end{itemize}
+
+------
+
+\begin{itemize}
+	\item Mit welchen anderen Systemen interagiert die Anwendung (technische Schnittstellen)?
+	\item Wer genehmigt das Projekt \bzw stellt Mittel zur Verfügung? 
+	\item Wer sind die Benutzer der Anwendung?
+	\item Wem muss das Ergebnis präsentiert werden?
+\end{itemize}
+zB. externe Werbeagentur?
+
+
+
+
+
+
+
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+-------------------------------------------------------------------------
+
+
+
+
+Die Implementierung der Website geschieht in 3 Schritten: \newline
+Die Entwicklung eines HTML Dummies unter Verwendung von \acs{HTML}5 und
+\acs{CSS}3 \bzw  \acs{LESS} nach \acs{BEM} Methodik. Folgend die Ausarbeitung
+der JavaScript \bzw jQuery Funktionalität im Frontend. Anschließend die Integration in 
+das firmeneigenen Content Management System \ct sowie dessen Anpassung.
+
+
+
+
+
+
+\DesignPattern{Block-Element-Modifier} kurz \acs{BEM} ist eine moderne Methode
+der Frontend-Architektur die erlaubt, Webprojekte modularer zu entwickeln. Das erleichtert die Wartbarkeit und macht es
+Entwicklern einfacher, die Codebasis jederzeit zu erweitern und trotzdem die Übersicht zu
+behalten. \textcolor{red}{Verweis!!!!!!}
+
+Die Anbindung an das firmeneigenen Content Management System \ct
+stellt dem Auftraggeber eine unkomplizierte Contentpflege ohne Programmierkenntnisse in einem
+responsiven Backend zur Verfügung. Das \acs{CMS} wird nach Anforderungen des
+Auftraggebers mithilfe des Musters \DesignPattern{Model-View-Controller} \acs{MVC} erweitert
+als auch angepasst.
+
+Für die Umsetzung stehen mir mein Arbeitsrechner (PHPStorm als \acs{IDE}),
+sowie die gesamte firmennetz-interne Produktivumgebung (\zB \acs{GIT}, phpMyAdmin) zur Verfügung.
+
+Aufgrund dessen, dass die \acs{BEM}-Methodik zum ersten mal im Unternehmen
+verwendet wird, kann dieser Auftrag auch als Leuchtturmprojekt für die \mh 
+dienen.
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+%-------------------------------------------------------------------------
+-------------------------------------------------------------------------
