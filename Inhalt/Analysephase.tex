@@ -5,26 +5,36 @@
 
 \subsection{Ist-Analyse} 
 \label{sec:IstAnalyse}
-\begin{itemize}
-	\item Wie ist die bisherige Situation (\zB bestehende Programme, Wünsche der Mitarbeiter)?
-	\item Was gilt es zu erstellen/verbessern?
-\end{itemize}
 
+Im Verlauf der Ist-Analyse wurde eine Liste mit allen Problemen sowie
+Anforderungen und deren technischen Lösungsmöglichkeiten aufgeführt. 
+
+Derzeitig beruht die Website auf einer veralteten \ct (Version 5), die
+noch einen komplizierten Ablauf zur Einpflege von Inhalten beherbergt. Dies ist mit
+einem hohen Zeitwaufwand sowie einer hohen Fehleranfälligkeit behaftet. Zu dem
+fehlen einige technischen Features, wie \zB eine umfangreiche \ac{SEO} und eine
+Mediendatenbank zur einfachen Verwaltung von Bilddateien \oae Formaten. 
+Außerdem wird die Website momentan auf allen Geräten in der Desktop-Ansicht
+präsentiert, was zu einer schlechten Bedienung der Steuerelementen führt.
+Möchte sich der Kunde über ein Smartphone informieren, wird er
+Schwierigkeiten beim Navigieren der Website haben. 
+
+Der mit \ac{RWD} konzeptionierte Relaunch der Website mit Anbindung der
+aktuellen \ct Version (6) löst alle oben benannten technischen Probleme und haltet alle
+Kundenanforderungen ein.
 
 \subsection{Wirtschaftlichkeitsanalyse}
 \label{sec:Wirtschaftlichkeitsanalyse}
-\begin{itemize}
-	\item Lohnt sich das Projekt für das Unternehmen?
-\end{itemize}
-
+Aufgrund der techschnischen und \Fachbegriff{Usability} Problemen, die in
+Kapitel \ref{sec:Projektbegruendung} \nameref{sec:Projektbegruendung}
+sowie \ref{sec:IstAnalyse} \nameref{sec:IstAnalyse} beschrieben werden,
+ist die Entwicklung in Form eines Relaunches erforderlich. In den folgenden Abschnitten wird die Gerechtfertigung aus wirtschaftlichen Standpunkten näher
+erläutert.
 
 \subsubsection{\gqq{Make or Buy}-Entscheidung}
 \label{sec:MakeOrBuyEntscheidung}
-\begin{itemize}
-	\item Gibt es vielleicht schon ein fertiges Produkt, dass alle Anforderungen des Projekts abdeckt?
-	\item Wenn ja, wieso wird das Projekt trotzdem umgesetzt?
-\end{itemize}
-
+In diesem Projekt ist eine "`Make or Buy"'-Entscheidung nicht gegeben, da die
+Anforderungen des Kunden \kunde in einigen Fällen zu spezifiziert sind.
 
 \subsubsection{Projektkosten}
 \label{sec:Projektkosten}
@@ -51,55 +61,54 @@ Eine Aufstellung der Kosten befindet sich in Tabelle~\ref{tab:Kostenaufstellung}
 
 \subsubsection{Amortisationsdauer}
 \label{sec:Amortisationsdauer}
-\begin{itemize}
-	\item Welche monetären Vorteile bietet das Projekt (\zB Einsparung von Lizenzkosten, Arbeitszeitersparnis, bessere Usability, Korrektheit)?
-	\item Wann hat sich das Projekt amortisiert?
-\end{itemize}
 
-\paragraph{Beispielrechnung (verkürzt)}
-Bei einer Zeiteinsparung von 10 Minuten am Tag für jeden der 25 Anwender und 220 Arbeitstagen im Jahr ergibt sich eine gesamte Zeiteinsparung von 
-\begin{eqnarray}
-25 \cdot 220 \mbox{ Tage/Jahr} \cdot 10 \mbox{ min/Tag} = 55000 \mbox{ min/Jahr} \approx 917 \mbox{ h/Jahr} 
-\end{eqnarray}
-
-Dadurch ergibt sich eine jährliche Einsparung von 
-\begin{eqnarray}
-917 \mbox{h} \cdot \eur{(25 + 15)}{\mbox{/h}} = \eur{36680}
-\end{eqnarray}
-
-Die Amortisationszeit beträgt also $\frac{\eur{2739,20}}{\eur{36680}\mbox{/Jahr}} \approx 0,07 \mbox{ Jahre} \approx 4 \mbox{ Wochen}$.
-
-
-\subsection{Nutzwertanalyse}
-\label{sec:Nutzwertanalyse}
-\begin{itemize}
-	\item Darstellung des nicht-monetären Nutzens (\zB Vorher-/Nachher-Vergleich anhand eines Wirtschaftlichkeitskoeffizienten). 
-\end{itemize}
-
-\paragraph{Beispiel}
-Ein Beispiel für eine Entscheidungsmatrix findet sich in Kapitel~\ref{sec:Architekturdesign}: \nameref{sec:Architekturdesign}.
+Aufgrund dessen, dass es sich um ein externes Projekt handelt, welches sich bei
+der Bezahlung der Rechnung für die \mh bereits alle Kosten deckt (inkl. Gewinn), ist
+eine Amortisationsdauer für das Unternehmen nicht notwendig.
+Auf der Seite des Kunden kann eine Berechnung der Amortisierungszeit nicht exakt
+durchgeführt werden, da sich der positive wirtschaftliche Effekt angesichts der
+verbesserten \Fachbegriff{Usability} und der Zeiteinsparrung bei der
+Inhaltspflege nur sehr schlecht einschätzen lässt.
 
 
 \subsection{Anwendungsfälle}
 \label{sec:Anwendungsfaelle}
+
+Die Übersicht der anfallenden Anwendungsfälle, die durch den Relaunch der
+Website abgedeckt werden sollen, finden sich in Form von Use-Case-Diagrammen im
+\Anhang{app:UseCase}. Diese bilden die nötigen Funktionen ab, die aus Sicht
+des Redakteurs sowie des herkömmlichen Benutzer unerlässlich sind.
+
 \begin{itemize}
 	\item Welche Anwendungsfälle soll das Projekt abdecken?
 	\item Einer oder mehrere interessante (!) Anwendungsfälle könnten exemplarisch durch ein Aktivitätsdiagramm oder eine \ac{EPK} detailliert beschrieben werden. 
 \end{itemize}
 
-\paragraph{Beispiel}
-Ein Beispiel für ein Use Case-Diagramm findet sich im \Anhang{app:UseCase}.
-
 
 \subsection{Qualitätsanforderungen}
 \label{sec:Qualitaetsanforderungen}
-\begin{itemize}
-	\item Welche Qualitätsanforderungen werden an die Anwendung gestellt (\zB hinsichtlich Performance, Usability, Effizienz \etc (siehe \citet{ISO9126}))?
-\end{itemize}
 
+Da es sich bei \ct um ein fertiges \ac{CMS} handelt, welches alle
+Entwicklungsphasen bereits durchlaufen hat, sind in diesem Bezug keine
+Qualitätsanforderungen vorhanden. Die im \Fachbegriff{Frontend} nötigen
+Anforderungen im Hinblick auf Performance und \Fachbegriff{Usability} werden im
+Folgenden erläutert.
+
+Infolge der verschiedenen Darstellungen je nach Browser und
+benutzerdefinierten Einstellungen ist eine ständige Überprüfung auf
+Darstellugnsfehler in der Implemmentierungsphase unabdingbar.
+Um die Gestaltungs- und Layoutelemente reakionsfähiger zu bilden, werden
+relative Bezugsgrößen für die Maßangabe verwendet. Diese werden \zB bei
+Schriftgrößen, Bildgrößen und Layout-Grids verwendet.Skalierende Icons und 
+änhliche Grafiken werden zwecks der scharfen Darstellung in Form von \ac{SVG}
+eingebettet.
+
+Um eine angenehme und flüssige Bedienung am Smartphone zu gewährleisten, wird
+auf Javascript falls möglich verzichtet.
 
 \subsection{Lastenheft/Fachkonzept}
 \label{sec:Lastenheft}
+\xx Anhang Lastenheft
 \begin{itemize}
 	\item Auszüge aus dem Lastenheft/Fachkonzept, wenn es im Rahmen des Projekts erstellt wurde.
 	\item Mögliche Inhalte: Funktionen des Programms (Muss/Soll/Wunsch), User Stories, Benutzerrollen
