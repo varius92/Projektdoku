@@ -1,9 +1,5 @@
 
-Die Implementierung der Website geschieht in 3 Schritten: \newline
-Die Entwicklung eines HTML Dummies unter Verwendung von \acs{HTML}5 und
-\ac{CSS}3 \bzw  \acs{LESS} nach \acs{BEM} Methodik. Folgend die Ausarbeitung
-der JavaScript \bzw jQuery Funktionalität im Frontend. Anschließend die Integration in 
-das firmeneigenen Content Management System \ct sowie dessen Anpassung.
+
 
 
 
@@ -21,3 +17,22 @@ verwendet wird, kann dieser Auftrag auch als Leuchtturmprojekt für die \mh
 dienen.
 
 
+
+
+PROJEKTKOSTEN
+
+\paragraph{Beispielrechnung (verkürzt)}
+Die Kosten für die Durchführung des Projekts setzen sich sowohl aus Personal-, als auch aus Ressourcenkosten zusammen.
+Laut Tarifvertrag verdient ein Auszubildender im dritten Lehrjahr pro Monat \eur{1000} Brutto. 
+
+\begin{eqnarray}
+8 \mbox{ h/Tag} \cdot 220 \mbox{ Tage/Jahr} = 1760 \mbox{ h/Jahr}\\
+\eur{1000}\mbox{/Monat} \cdot 13,3 \mbox{ Monate/Jahr} = \eur{13300} \mbox{/Jahr}\\
+\frac{\eur{13300} \mbox{/Jahr}}{1760 \mbox{ h/Jahr}} \approx \eur{7,56}\mbox{/h}
+\end{eqnarray}
+
+Es ergibt sich also ein Stundenlohn von \eur{7,56}. 
+Die Durchführungszeit des Projekts beträgt 70 Stunden. Für die Nutzung von Ressourcen\footnote{Räumlichkeiten, Arbeitsplatzrechner etc.} wird 
+ein pauschaler Stundensatz von \eur{15} angenommen. Für die anderen Mitarbeiter wird pauschal ein Stundenlohn von \eur{25} angenommen. 
+Eine Aufstellung der Kosten befindet sich in Tabelle~\ref{tab:Kostenaufstellung} und sie betragen insgesamt \eur{2739,20}.
+\tabelle{Kostenaufstellung}{tab:Kostenaufstellung}{Kostenaufstellung.tex}

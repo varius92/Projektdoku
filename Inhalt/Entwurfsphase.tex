@@ -27,7 +27,8 @@ zu CSS-Code kompiliert.  \footnote{Vgl. Less (Stylesheet-Sprache)
 \label{sec:Architekturdesign}
 Das \ac{CMS} \ct basiert auf dem \ac{PHP} Web Framework CakePHP (Version 2.8).
 
-CakePHP is ein freies, open-source-basiertes, rapides Entwicklungsframework für PHP.
+CakePHP ist ein freies, open-source-basiertes, rapides Entwicklungsframework für
+PHP.
 Es ist eine Grundlage für das Programmieren von Web-Applikationen.
 Das primäre Ziel ist, in einer strukturierten und rapiden Umgebung zu arbeiten
  -- ohne die Flexiblität zu verlieren.\footnote{Vgl. CakePHP - The Manual
@@ -47,38 +48,38 @@ optionale JavaScript-Erweiterungen.\footnote{Vgl. Bootstrap
 für ältere Browser, die keine ausreichende HTML5 Funktionalität aufweisen, stellt Bootstrap Weichen,
 \zB zur Optimierung für Touch-Devices, parat. 
 
+\subsubsection{Convention over Configuration}
+\label{sec:CoC}
+CakePHP versucht, die Konfiguration auf ein Minimum zu beschränken und
+spart hiermit viel \\ Arbeitsaufwand. Ein Beispiel wäre die Zuordnung der Models
+zu Datenbanktabellen. Dies geschieht über die Namensgleichheit in Singular und Plural. 
+Im Detail Model User (Singular) zu Tabelle users (Plural). Der einzige
+Konfigurationsschritt ist die Datenbankanbindung selber.
+
 
 \subsubsection{Model-View-Controller}
 \label{sec:MVC}
 \ac{MVC} ist ein effektives Entwurfsmuster zur effizienten Umsetzung von 
-wartbaren und modularen Webapplikationen. Es gewährleistet eine höhere
-Skalirbarkeit und Flexibilität bei Änderungen. Durch die modulare sowie
-unterteilte Logik wird einem ermöglicht einen Teil der Anwendung zu verändern,
-ohne einen anderen Teil zu beeinflussen.
-
-
-\begin{figure}[h]
+wartbaren und modularen \\ Webapplikationen. Es gewährleistet eine höhere
+Skalierbarkeit und Flexibilität bei Änderungen. Durch die modulare sowie
+unterteilte Logik wird es ermöglicht einen Teil der Anwendung zu
+verändern, ohne einen anderen Teil zu beeinflussen. Im Folgendem wird eine
+simple Darstellung eines \ac{MVC} \begin{figure}[htb] Musters aufgezeigt.
+\label{MVC-Diagramm}
 \caption{Simples MVC Diagramm}
 \center{\includegraphics[scale=0.7]{Bilder/mvc.jpg}}
 \end{figure}
 
 
-\subsubsection{Convention over Configuration}
-\label{sec:CoC}
-CakePHP versucht, die Konfiguration auf ein Minimum zu beschränken und
-spart hiermit viel Arbeitsaufwand. Ein Beispiel wäre die Zuordnung der Models zu
-Datenbanktabellen. Dies geschieht über die Namensgleichheit in Singular und Plural. 
-Im Detail Model User (Singular) zu Tabelle users (Plural). Der einzige
-Konfigurationsschritt ist die Datenbankanbindung selber.
 
 
 \subsubsection{7-1 Pattern}
 \label{sec:7-1}
 Das \DesignPattern{7-1 Pattern}
 \footnote{7-1 Pattern, \url{https://www.sass-guidelin.es/#architecture}} ist ein
-Muster aus der Frontendarchitektur und definiert sich durch die Strukturierung des \ac{CSS} in 7 Ordner und einer Hauptdatei.
-Grundsätzlich sind alle Teile des \ac{CSS} in 7 Ordnern verteilt, und eine Datei
-(main.css) die alle Teilstücke importiert und zu einer Stylesheet kompiliert.
+Muster aus der Frontendarchitektur und definiert sich durch die Strukturierung des \ac{CSS} in 7 Ordner und
+einer Hauptdatei. Grundsätzlich sind alle Teile des \ac{CSS} in 7 Ordnern
+verteilt, und eine Datei (main.css) die alle Teilstücke importiert und zu einer Stylesheet kompiliert.
 \begin{multicols}{4}
 \begin{itemize}
 \item abstracts/
@@ -91,9 +92,19 @@ Grundsätzlich sind alle Teile des \ac{CSS} in 7 Ordnern verteilt, und eine Date
 \item main.less
 \end{itemize}
 \end{multicols}
-Die logische und modulare Trennung des \ac{CSS}-Codes verschaft eine klare
+Die logische und modulare Trennung des \ac{CSS}-Codes verschafft eine klare
 Übersicht für den Entwickler. Ebenso wird die Wiederverwendbarkeit von
-Teilstücken verbessert und die Skalirbarkeit erhöht.
+Teilstücken verbessert und die Skalierbarkeit erhöht. Zusätzlich verschaft man
+sich durch die Architektur eine Reihenfolge der Spezifität. Dieses zwingt einen
+dazu Spitzen in der Spezifität von Selektoren zu vermeiden oder eher
+am Ende des Stylesheets zu platzieren. So befinden sich im zweiten Ordner
+"`base/"' nur \ac{CSS}, welches auschließlich HTML Standardelemente (\zB ul,
+input,table, \usw) stilisiert. Der nächste Ordner besitzt immer eine höhere
+Spezifität als der vorherige. In diesem Fall der Ordner "`components/"', der
+bereits Klassen besitzt und aufgrund der höheren Spezifität den Style von
+"`base/"' überschreiben kann.
+
+
 
 
 \subsubsection{Block-Element-Modifier}
@@ -120,23 +131,46 @@ praktischen Beispieles naherliegender erläutert.
 
 \subsection{Entwurf der Benutzeroberfläche}
 \label{sec:Benutzeroberflaeche} 
+Das Screendesign wurde von einer externen Werbeagentur zur Verfügung gestellt.
+Dementsprechend ist die Durchführung der Corporate Design Richtlinien durch \mh
+überflüssig.
+Der Screendesigner der \mh hat das Design lediglich in Slices \footnote{Geschnittenen Bilder/Grafiken} 
+geschnitten und für die Entwicklung vorbereitet. Zur besseren Übersicht wurde
+zusätzlich ein Wireframe gefertigt, welches im \Anhang{app:Entwuerfe}
+begutachtet werden kann.
+
+
+Um dem Entwickler eine bessere Übersicht der nötigen Styles zu bieten, hat der
+Screendesigner einen Styleguide entworfen. Dies und weitere Oberflächen sind
+ebenfalls unter \Anhang{app:Entwuerfe} zu finden.
+
+
 
 \begin{itemize}
 	\item Entscheidung für die gewählte Benutzeroberfläche (\zB GUI, Webinterface).
 	\item Beschreibung des visuellen Entwurfs der konkreten Oberfläche (\zB Mockups, Menüführung).
 	\item \Ggfs Erläuterung von angewendeten Richtlinien zur Usability und Verweis auf Corporate Design.
 \end{itemize}
-\xx mockups von der arbeit?
-\paragraph{Beispiel}
-Beispielentwürfe finden sich im \Anhang{app:Entwuerfe}.
+
 
 
 \subsection{Maßnahmen zur Qualitätssicherung}
 \label{sec:Qualitaetssicherung}
-\begin{itemize}
-	\item Welche Maßnahmen werden ergriffen, um die Qualität des Projektergebnisses (siehe Kapitel~\ref{sec:Qualitaetsanforderungen}: \nameref{sec:Qualitaetsanforderungen}) zu sichern (\zB automatische Tests, Anwendertests)?
-	\item \Ggfs Definition von Testfällen und deren Durchführung (durch Programme/Benutzer).
-\end{itemize}
+Zur Überprüfung von Darstellungsfehlern wird im Laufe der
+Implementierungsphase die Ausgabe aller relevanten Browser in allen nötigen
+Darstellungsgrößen kontrolliert. Dazu besteht eine laufende \\ Kommunikation
+zwischen Entwickler und dem Screendesigner im Hause, der alle Slices vom
+Screendesign bereit stellt.
+Für Schriftgrößen und Abstände wird die relative Maßeinheit "`rem"' eingesetzt.
+Diese Einheit orientiert sich an den Schriftgrößenwert des HTML
+Rootelements (<html>). Um eine richtige proportionale Darstellung je nach
+Browsereinstellungen zu gewährleisten, wird der Schriftgröße des Rootelements
+ein prozentualer Wert zugewiesen. Im Hinblick darauf, dass jeder Browser im
+Desktop und mobilen Bereich eine Standarteinstellung von 16px Schriftgröße
+besitzt, wird der prozentuale Wert -- bei einem Beispiel von 18px
+Fließtextgröße -- auf 112,5\% (18 * 100 / 16) gesetzt. Dies bewirkt eine
+proportionale Skalierung von Abständen und Schriftgrößen im Falle von
+benutzerdefinierten Browsereinstellungen.
 
 
 \subsection{Pflichtenheft}

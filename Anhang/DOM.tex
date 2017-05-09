@@ -1,0 +1,133 @@
+\subsection{Document Object Model}
+\label{listing:DOM}
+
+\begin{lstlisting}[style=htmlcssjs, backgroundcolor = \color{lightgray},
+caption=DOM der index.php] 
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <?php
+    echo $this->element('FrontendSeo.seo');
+    ResourceLoader::add('css', 'combined', $this->Html->css('/less/main.css'));
+    echo ResourceLoader::render('css');
+    echo $this->Html->script('vendor/modernizr-2.8.3.min.js');
+    ?>
+    <?php /* Apple */ ?>
+    <link rel="apple-touch-icon" sizes="76x76" href="<?= $this->webroot ?>img/social/apple-touch-icon-76.png"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="<?= $this->webroot ?>img/social/apple-touch-icon-120.png"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="<?= $this->webroot ?>img/social/apple-touch-icon-152.png"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="<?= $this->webroot ?>img/social/apple-touch-icon-180.png"/>
+
+    <?php /* Android */ ?>
+    <link rel="shortcut icon" sizes="196x196" href="<?= $this->webroot ?>img/social/android-icon.png"/>
+
+    <?php /* Windows  */ ?>
+    <meta name="msapplication-square70x70logo" content="<?= $this->webroot ?>img/social/small.png"/>
+    <meta name="msapplication-square150x150logo" content="<?= $this->webroot ?>img/social/medium.png"/>
+    <meta name="msapplication-wide310x150logo" content="<?= $this->webroot ?>img/social/wide.png"/>
+    <meta name="msapplication-square310x310logo" content="<?= $this->webroot ?>img/social/large.png"/>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="<?= $this->webroot ?>favicon.ico">
+</head>
+
+<body data-baseurl="<?= Router::url('/', true) ?>" class="<?= empty($headerImagesForLayout) ? 'no-headslider' : '' ?>">
+
+<!-- HEADER -->
+<header class="header<?= $isHome ? ' header--full' : '' ?>">
+    <?php
+    echo $this->element('navigation', ['regionIdForLayout' => $regionIdForLayout]);
+    ?>
+    <div class="header__slider">
+        <?php
+        echo $this->element('FrontendHeaderImages.header-slider');
+        ?>
+    </div>
+</header>
+
+<!-- SIDEBAR -->
+<?= $this->element('sidebar', ['weather' => $weatherForSidebar, 'lake_temp' => $lake_temp]); ?>
+
+<!-- CONTENT -->
+<main id="content">
+    <?php
+    if ($isHome) {
+        echo trim($this->fetch('content'));
+    } else {
+        ?>
+        <div class="container">
+            <?php
+            // Breadcrumb Navigation
+            if (!$isHome) {
+                echo $this->Tree->generate(
+                    $pathForLayout,
+                    function ($node) {
+
+                        if ($node['Menu']['type'] != 'structure') {
+
+                            if ($node['Menu']['id'] == $this->request->ids['Menu']) {
+
+                                return h($node['Menu']['title']);
+                            }
+
+                            return $this->Html->link(
+                                $node['Menu']['title'],
+                                $node['Route']['route'],
+                                ['class' => 'breadcrumb__link']
+                            );
+                        } elseif ($node['Menu']['type'] != 'structure' && !$node['Menu']['parent_id']) {
+                            return;
+                        }
+                    },
+                    [
+                        'list'        => ['tag' => 'ol', 'class' => 'breadcrumb'],
+                        'item'        => ['tag' => 'li', 'class' => 'breadcrumb__item'],
+                        'item-active' => ['tag' => 'li', 'class' => 'breadcrumb__item breadcrumb__item--active'],
+                        'active'      => function ($node) {
+                            return ($node['Menu']['id'] == $this->request->ids['Menu']);
+                        }
+                    ]
+                );
+            }
+            ?>
+            <section class="row">
+                <?php
+                // Content
+                echo trim($this->fetch('content'));
+                ?>
+            </section>
+        </div>
+        <?php
+    }
+    ?>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <?= $this->element('footer'); ?>
+</footer>
+
+<?php
+// MODAL
+echo $this->element('modal');
+// Ressources
+ResourceLoader::add('js', 'jquery', $this->Html->script('vendor/jquery-1.11.2.min.js'));
+ResourceLoader::add('js', 'combined', $this->Html->script('main.combined.js'), 'jquery');
+ResourceLoader::add('js', 'jsBuffer', $this->Js->writeBuffer(), 'combined');
+ResourceLoader::add('js', 'jquery-ga-init', $this->Html->scriptEnd(), 'jquery-ga');
+echo ResourceLoader::render('js');
+?>
+</body>
+</html>
+\end{lstlisting}
+
+\clearpage
