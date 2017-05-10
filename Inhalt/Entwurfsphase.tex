@@ -18,11 +18,6 @@ Code-Wiederholungen bewerkstelligt. Der Less-Code wird anschließend
 zu CSS-Code kompiliert.  \footnote{Vgl. Less (Stylesheet-Sprache)
 \cite{wiki:Less_(Stylesheet-Sprache)}}
 
-\begin{itemize}
-	\item Beschreibung der Kriterien zur Auswahl der Zielplattform (\ua Programmiersprache, Datenbank, Client/Server, Hardware).
-\end{itemize}
-
-
 \subsection{Architekturdesign}
 \label{sec:Architekturdesign}
 Das \ac{CMS} \ct basiert auf dem \ac{PHP} Web Framework CakePHP (Version 2.8).
@@ -70,9 +65,6 @@ simple Darstellung eines \ac{MVC} \begin{figure}[htb] Musters aufgezeigt.
 \center{\includegraphics[scale=0.7]{Bilder/mvc.jpg}}
 \end{figure}
 
-
-
-
 \subsubsection{7-1 Pattern}
 \label{sec:7-1}
 Das \DesignPattern{7-1 Pattern}
@@ -97,15 +89,12 @@ Die logische und modulare Trennung des \ac{CSS}-Codes verschafft eine klare
 Teilstücken verbessert und die Skalierbarkeit erhöht. Zusätzlich verschaft man
 sich durch die Architektur eine Reihenfolge der Spezifität. Dieses zwingt einen
 dazu Spitzen in der Spezifität von Selektoren zu vermeiden oder eher
-am Ende des Stylesheets zu platzieren. So befinden sich im zweiten Ordner
+am Ende des Stylesheets zu platzieren. So befindet sich im zweiten Ordner
 "`base/"' nur \ac{CSS}, welches auschließlich HTML Standardelemente (\zB ul,
 input,table, \usw) stilisiert. Der nächste Ordner besitzt immer eine höhere
 Spezifität als der vorherige. In diesem Fall der Ordner "`components/"', der
 bereits Klassen besitzt und aufgrund der höheren Spezifität den Style von
 "`base/"' überschreiben kann.
-
-
-
 
 \subsubsection{Block-Element-Modifier}
 \label{sec:BEM}
@@ -119,15 +108,8 @@ den Modifikator anpassbar sind. Durch dieses einfache Muster ist BEM der ideale
 Weg, um im Team an Projekten mit sich ändernden Anforderungen zu arbeiten.
  \footnote{Vgl. t3n - Webdesign Magazin \cite{BEM}}
  
-Die Methodik wird im Kapitel \xx chapternr. chaptername anhand eines
+Die Methodik wird im Kapitel \ref{sec:BEMExample} anhand eines
 praktischen Beispieles naherliegender erläutert.
-
-
-\begin{itemize}
-	\item Beschreibung und Begründung der gewählten Anwendungsarchitektur (\zB \acs{MVC}).
-	\item \Ggfs Bewertung und Auswahl von verwendeten Frameworks sowie \ggfs eine kurze Einführung in die Funktionsweise des verwendeten Frameworks.
-\end{itemize}
-
 
 \subsection{Entwurf der Benutzeroberfläche}
 \label{sec:Benutzeroberflaeche} 
@@ -139,28 +121,12 @@ geschnitten und für die Entwicklung vorbereitet. Zur besseren Übersicht wurde
 zusätzlich ein Wireframe gefertigt, welches im \Anhang{app:Entwuerfe}
 begutachtet werden kann.
 
-
 Um dem Entwickler eine bessere Übersicht der nötigen Styles zu bieten, hat der
 Screendesigner einen Styleguide entworfen. Dies und weitere Oberflächen sind
 ebenfalls unter \Anhang{app:Entwuerfe} zu finden.
 
-
-
-\begin{itemize}
-	\item Entscheidung für die gewählte Benutzeroberfläche (\zB GUI, Webinterface).
-	\item Beschreibung des visuellen Entwurfs der konkreten Oberfläche (\zB Mockups, Menüführung).
-	\item \Ggfs Erläuterung von angewendeten Richtlinien zur Usability und Verweis auf Corporate Design.
-\end{itemize}
-
-
 \subsection{Pflichtenheft}
 \label{sec:Pflichtenheft}
-\begin{itemize}
-	\item Auszüge aus dem Pflichtenheft/Datenverarbeitungskonzept, wenn es im Rahmen des Projekts erstellt wurde.
-\end{itemize}
-
-\paragraph{Beispiel}
-Ein Beispiel für das auf dem Lastenheft (siehe Kapitel~\ref{sec:Lastenheft}: \nameref{sec:Lastenheft}) aufbauende Pflichtenheft ist im \Anhang{app:Pflichtenheft} zu finden.
-
-
-\Zwischenstand{Entwurfsphase}{Entwurf}
+Mithilfe des Lastenheftes und den Erkenntnissen aus der Entwurfphase wurden
+die Realisierungsvorgaben stichpunktartig erfasst. Ein Auszug davon ist im
+\Anhang{app:Pflichtenheft} zu finden.

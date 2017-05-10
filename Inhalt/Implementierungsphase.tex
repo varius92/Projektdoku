@@ -1,4 +1,4 @@
-\usepackage{color}
+
 \definecolor{lightgray}{rgb}{0.98, 0.98, 0.98}
 \definecolor{darkgray}{rgb}{0.4, 0.4, 0.4}
 %\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
@@ -11,8 +11,7 @@
 \definecolor{purple}{rgb}{0.38,0.18,0.81}
 \definecolor{lightblue}{rgb}{0.1,0.57,0.7}
 \definecolor{lightred}{rgb}{1,0.4,0.5}
-\usepackage{upquote}
-\usepackage{listings}
+
 
 
 
@@ -201,7 +200,7 @@ Das in sich geschlossene Gestaltungselement wird als Block bezeichnet.
 
 
 \begin{figure}[ht]
-\caption{Block}
+
 \center{\includegraphics[scale=0.9]{Bilder/button-default.png}}
 \end{figure}
 \\
@@ -224,12 +223,12 @@ caption=BEM -- Block Default (CSS)]
   [...]
 }
 \end{lstlisting}
-\clearpage
+
 Zur Veränderung der Optik werden Blöcke sowie Elemente mit Modifier ergänzt
-(=Varianten).
+(=Variation).
 
 \begin{figure}[ht]
-\caption{Block mit Modifier}
+
 \center{\includegraphics[scale=0.9]{Bilder/button-mod.png}}
 \end{figure}
 
@@ -243,8 +242,6 @@ caption=BEM -- Modifier (CSS)]
 .button--white {
   background-color: white;
   padding: 37px 50px 31px 50px;
-  font-family: @font-LunchBox-Light;
-  color: @color-primary;
   box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
 }
 
@@ -253,7 +250,7 @@ caption=BEM -- Modifier (CSS)]
 Die Elemente innerhalb eines Blockes werden simpel als Elemente bezeichnet.
 
 \begin{figure}[ht]
-\caption{Block mit Element}
+
 \center{\includegraphics[scale=0.9]{Bilder/button-elem.png}}
 \end{figure}
 
@@ -314,7 +311,7 @@ firmeninterne Lösung conTRANCE v6. Der erste Schritt ist der Pull \bzw Export
 des letzten conTRANCE Releases aus GIT. Die Dateien des HTML Dummys werden
 in die conTRANCE Dateienstruktur aufgenommen. Die Datenbanktabellen des
 \ac{CMS} werden vom Enticklungsserver kopiert und in eine für das Projekt neu
-angelegte Datenbank importiert. Alle Inhaltsbezogenen Tabelle werden geleert
+angelegte Datenbank importiert. Alle Inhaltsbezogenen Tabellen werden geleert
 und die Datenbankanbindung wird mit entsprechenden Daten konfiguriert.
 Anschließend kann über das Backend ein rudimentärer Navigationsbaum angelegt
 werden, welcher für die weitere Umsetzung notwendig ist. Nun werden die Ausgaben
@@ -341,4 +338,3 @@ Fließtextgröße -- auf 112,5\% (18 * 100 / 16) gesetzt. Dies bewirkt eine
 proportionale Skalierung von Abständen und Schriftgrößen im Falle von
 benutzerdefinierten Browsereinstellungen.
 
-\Zwischenstand{Implementierungsphase}{Implementierung}
