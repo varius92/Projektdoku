@@ -1,0 +1,67 @@
+\subsection{Dropdownfunktionalität der Navigation}
+\label{app:Dropdown}
+\begin{lstlisting}[style=htmlcssjs, backgroundcolor = \color{lightgray},
+caption=Javascript Dropdownfunktionalität]
+    // Toggle Button zum Aufklappen der Navigation in der mobilen Ansicht    
+    var menu = $('.menu-main'),
+        menuToggleBtn = $('[data-target="menu"]'),
+        logo = $(".navbar__brand");
+
+    menuToggleBtn.click(function () {
+        $(this).hide();
+        $(this).siblings('.menu__link--toggle').css({display: "block"});
+        logo.animate({opacity: 0}, 100);
+        menu.slideToggle(300, function () {
+            if (menu.css("display") == "none") {
+                logo.stop().animate({opacity: 1}, 200);
+            }
+        });
+    });
+    
+    //DopDown Funktionalität
+    var dropdown_link = $('[data-toggle="dropdown"]'),
+        sub_dropdown_link = $('[data-toggle="sub-dropdown"]'); 
+         
+    // Primary-Dropdown
+    dropdown_link.on('click', function (e) {
+        e.stopPropagation();
+        dropdown_container = $(this).siblings('.menu__dropdown-container');
+        dropdown_container.slideToggle(toggleTime);
+        //* andere Conteiner einklappen lassen *//
+        $('.menu__dropdown-container').not(dropdown_container).not($('.menu__dropdown-container--sub')).slideUp(slideUpTime);
+    });     
+         
+    // Sub-Dropdown
+    sub_dropdown_link.on('click', function (e) {
+        e.stopPropagation();
+        $this = $(this);
+        sub_dropdown_link.not($this).html('+').removeClass('minus');
+        $this.toggleClass('minus');
+        if ($this.hasClass('minus')) {
+            $this.html('-')
+        } else {
+            $this.html('+')
+        } 
+        dropdown_container = $this.siblings('.menu__dropdown-container--sub');
+        dropdown_container.slideToggle(toggleTime);
+        //* andere Container einklappen lassen *//
+        $('.menu__dropdown-container--sub').not(dropdown_container).slideUp(slideUpTime);
+    });
+
+
+    /* Anything that gets to the document
+     will hide the dropdown */
+    $(document).click(function () {
+        $(".menu__dropdown-container").css('display', 'none');
+    });
+
+    /* Clicks within the dropdown won't make
+     it past the dropdown itself */
+    $(".menu__dropdown-container:not('button')").click(function (e) {
+        elementClassName = e.target.className;
+        if (e.target.className.search('search-housing__submit') == -1) {
+            e.stopPropagation();
+        }
+    });
+    
+\end{lstlisting}

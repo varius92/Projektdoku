@@ -153,26 +153,6 @@ ebenfalls unter \Anhang{app:Entwuerfe} zu finden.
 \end{itemize}
 
 
-
-\subsection{Maßnahmen zur Qualitätssicherung}
-\label{sec:Qualitaetssicherung}
-Zur Überprüfung von Darstellungsfehlern wird im Laufe der
-Implementierungsphase die Ausgabe aller relevanten Browser in allen nötigen
-Darstellungsgrößen kontrolliert. Dazu besteht eine laufende \\ Kommunikation
-zwischen Entwickler und dem Screendesigner im Hause, der alle Slices vom
-Screendesign bereit stellt.
-Für Schriftgrößen und Abstände wird die relative Maßeinheit "`rem"' eingesetzt.
-Diese Einheit orientiert sich an den Schriftgrößenwert des HTML
-Rootelements (<html>). Um eine richtige proportionale Darstellung je nach
-Browsereinstellungen zu gewährleisten, wird der Schriftgröße des Rootelements
-ein prozentualer Wert zugewiesen. Im Hinblick darauf, dass jeder Browser im
-Desktop und mobilen Bereich eine Standarteinstellung von 16px Schriftgröße
-besitzt, wird der prozentuale Wert -- bei einem Beispiel von 18px
-Fließtextgröße -- auf 112,5\% (18 * 100 / 16) gesetzt. Dies bewirkt eine
-proportionale Skalierung von Abständen und Schriftgrößen im Falle von
-benutzerdefinierten Browsereinstellungen.
-
-
 \subsection{Pflichtenheft}
 \label{sec:Pflichtenheft}
 \begin{itemize}

@@ -277,9 +277,11 @@ caption=BEM -- Element (CSS)]
 
 \subsection{Implementierung der Javascript Funktionalitäten}
 \label{sec:ImplementierungJS}
-Durch das Scrollen nach unten verkleinert sich das Logo. Dies wird mit dem
-Hinzufügen eines Element-Modifier (\lstinline{.navbar__brand--minimized})
-bewerkstelligt.
+Durch das Scrollen nach unten verkleinert sich das Logo soweit, so dass das
+Logo  den weißen Bereich (Navbar) nicht überschreitet. Dies wird mit dem
+Hinzufügen einer Element-Modifier Klasse \\
+(\lstinline{.navbar__brand--minimized}) bewerkstelligt.
+\\
 \begin{lstlisting}[style=htmlcssjs, backgroundcolor = \color{lightgray},
 caption=Logominimierung beim Scrollen]
     $(document).scroll(function () {
@@ -288,30 +290,55 @@ caption=Logominimierung beim Scrollen]
         } else {
             $('.navbar__brand').removeClass('navbar__brand--minimized');
         }
-    });
+     }).trigger("scroll");     
 \end{lstlisting}
-Es wird abgefragt ob die Scrollposition über 0px steht. Beim Eintreffen
-Bedingung wird die Klasse \lstinline{.navbar__brand--minimized} zum
-Logoelement hinzugefügt. Ansonsten wird die Klasse wieder entfernt. 
 
+Ein Eventhandler wird an das Scroll-Event des Window-Objekts gebunden.
+Wenn die Scrollposition größer gleich der oberen Kante des Browserfensters ist
+(>0px), wird dem Logo die Klasse \lstinline{.navbar__brand--minimized}
+hinzugefügt. Ansonsten wird diese Klasse im Else-Zweig entfernt.
+Die Klasse selber beinhaltet Styles zur animierten Skalierung des Logos.
 
-ERklärung sidebar mit snippet
-erklärung dropdown mit snippet anhang
-Erklärung sticky header mit snippet
-
+Bei der Navigation wurde aufgrund seiner hohen Komplexität, auf die schon
+fertige Dropdownfunktion des Frameworks Bootsrap verzichtet. Ein weiteres
+Problem ist, dass die Bootstrap Funktionalität keine Möglichkeit eines
+Subdropdowns unterstützt. Das Skript dazu ist im \Anhang{app:Dropdown} zu
+finden.
 
 \subsection{Implementierung des Content Management System}
 \label{sec:ImplementierungCMS}
 
-\begin{itemize}
-	\item Beschreibung des Vorgehens bei der Umsetzung/Programmierung der entworfenen Anwendung.
-	\item \Ggfs interessante Funktionen/Algorithmen im Detail vorstellen, verwendete Entwurfsmuster zeigen.
-	\item Quelltextbeispiele zeigen.
-	\item Hinweis: Wie in Kapitel~\ref{sec:Einleitung}: \nameref{sec:Einleitung} zitiert, wird nicht ein lauffähiges Programm bewertet, sondern die Projektdurchführung. Dennoch würde ich immer Quelltextausschnitte zeigen, da sonst Zweifel an der tatsächlichen Leistung des Prüflings aufkommen können.
-\end{itemize}
+Nach der vollständigen Umsetzung des \ac{HTML} Dummys mit rein statischen
+Testinhalt beginnt die Integration des \ac{CMS}. Die \mh setzt auf die
+firmeninterne Lösung conTRANCE v6. Der erste Schritt ist der Pull \bzw Export
+des letzten conTRANCE Releases aus GIT. Die Dateien des HTML Dummys werden
+in die conTRANCE Dateienstruktur aufgenommen. Die Datenbanktabellen des
+\ac{CMS} werden vom Enticklungsserver kopiert und in eine für das Projekt neu
+angelegte Datenbank importiert. Alle Inhaltsbezogenen Tabelle werden geleert
+und die Datenbankanbindung wird mit entsprechenden Daten konfiguriert.
+Anschließend kann über das Backend ein rudimentärer Navigationsbaum angelegt
+werden, welcher für die weitere Umsetzung notwendig ist. Nun werden die Ausgaben
+aus dem \ac{CMS} zum Style des Screendesigns angegleicht.
 
-\paragraph{Beispiel}
-Die Klasse \texttt{Com\-par\-ed\-Na\-tu\-ral\-Mo\-dule\-In\-for\-ma\-tion} findet sich im \Anhang{app:CNMI}.  
+Da \ct schon alle Anforderungen des Kunden erfüllt, waren dessen Anpassungen,
+die nur die visuelle Ausgabe betreffen, nicht beachtenswert.
 
+\subsection{Testphase}
+\label{sec:Testphase}
+Zur Überprüfung von Darstellungsfehlern wird im Laufe der
+Implementierungsphase die Ausgabe aller relevanten Browser in allen nötigen
+Darstellungsgrößen kontrolliert. Dazu besteht eine laufende \\ Kommunikation
+zwischen Entwickler, dem Projektmanagement und dem Screendesigner im Hause, der
+alle Slices vom Screendesign bereit stellt.
+Für Schriftgrößen und Abstände wird die relative Maßeinheit "`rem"' eingesetzt.
+Diese Einheit orientiert sich an den Schriftgrößenwert des HTML
+Rootelements (<html>). Um eine richtige proportionale Darstellung je nach
+Browsereinstellungen zu gewährleisten, wird der Schriftgröße des Rootelements
+ein prozentualer Wert zugewiesen. Im Hinblick darauf, dass jeder Browser im
+Desktop und mobilen Bereich eine Standarteinstellung von 16px Schriftgröße
+besitzt, wird der prozentuale Wert -- bei einem Beispiel von 18px
+Fließtextgröße -- auf 112,5\% (18 * 100 / 16) gesetzt. Dies bewirkt eine
+proportionale Skalierung von Abständen und Schriftgrößen im Falle von
+benutzerdefinierten Browsereinstellungen.
 
 \Zwischenstand{Implementierungsphase}{Implementierung}
